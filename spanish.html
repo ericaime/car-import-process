@@ -194,6 +194,128 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             margin: 15px 0;
         }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 10px;
+                margin: 5px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+                font-size: 22px;
+                position: relative;
+            }
+            
+            .back-btn {
+                position: static;
+                transform: none;
+                display: block;
+                margin-bottom: 15px;
+                text-align: center;
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+            
+            .step {
+                margin: 20px 15px;
+                padding: 20px;
+            }
+            
+            .step-title {
+                font-size: 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .service-stages {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .service-stage {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .stage-header {
+                padding: 15px;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .stage-content {
+                padding: 20px 15px;
+            }
+            
+            .step-description {
+                font-size: 15px;
+            }
+            
+            .image-caption {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px 10px;
+                font-size: 18px;
+            }
+            
+            .back-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .step {
+                margin: 15px 10px;
+                padding: 15px;
+            }
+            
+            .step-title {
+                font-size: 18px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            
+            .step-description {
+                font-size: 14px;
+            }
+            
+            .stage-header {
+                padding: 12px;
+            }
+            
+            .stage-header h4 {
+                font-size: 16px;
+            }
+            
+            .stage-content {
+                padding: 15px 12px;
+            }
+            
+            .service-stage {
+                padding: 10px;
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>

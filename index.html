@@ -138,17 +138,78 @@
             margin-right: 10px;
         }
 
-        @media (max-width: 600px) {
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
             .container {
-                padding: 20px;
+                padding: 25px 20px;
+                border-radius: 15px;
+                margin: 10px;
             }
             
             .title {
-                font-size: 2em;
+                font-size: 2.2em;
+                margin-bottom: 8px;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+                margin-bottom: 30px;
             }
             
             .language-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .language-btn {
+                padding: 18px 25px;
+                font-size: 1.05em;
+                border-radius: 12px;
+            }
+            
+            .flag {
+                font-size: 1.3em;
+                margin-right: 8px;
+            }
+            
+            .description {
+                font-size: 0.95em;
+                padding: 18px;
+                margin-top: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+                margin: 5px;
+            }
+            
+            .title {
+                font-size: 1.8em;
+                line-height: 1.2;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .language-btn {
+                padding: 16px 20px;
+                font-size: 1em;
+            }
+            
+            .flag {
+                font-size: 1.2em;
+            }
+            
+            .description {
+                font-size: 0.9em;
+                padding: 15px;
             }
         }
     </style>
