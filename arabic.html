@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل عملية استيراد السيارات من الصين</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .step {
+            margin: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .step-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .step-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .step-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .step-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        .step-content {
+            display: block;
+        }
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        .service-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .service-stage {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .image-gallery {
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .image-gallery .image-container {
+            margin: 30px 0;
+        }
+        
+        .service-stages-detailed {
+            margin: 30px 0;
+        }
+        
+        .service-stage-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stage-header {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stage-number {
+            background: rgba(255,255,255,0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .stage-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .stage-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+            🚗 دليل عملية استيراد السيارات من الصين الشامل 🚗
+        </div>
+        
+        <div class="step step-1">
+            <div class="step-title">
+                <div class="step-number">1</div>
+                تثبيت إضافة عربة التسوق للسيارات (الشريك)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔧 دليل تثبيت الإضافة</div>
+                    <p><strong>الموقع:</strong><a href="https://chromewebstore.google.com/" target="_blank">https://chromewebstore.google.com/</a></p>
+                    <p>• افتح متجر إضافات متصفح Chrome</p>
+                    <p>• ابحث عن كلمة "shopping cart"</p>
+                    <p>• اعثر على هذه الإضافة وأضفها إلى Chrome</p>
+                    <div class="image-container">
+                        <img src="1.jpg" alt="البحث عن إضافة عربة التسوق" class="step-image">
+                        <p class="image-caption">الشكل 1: البحث عن إضافة عربة التسوق</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-2">
+            <div class="step-title">
+                <div class="step-number">2</div>
+                عرض تفاصيل السيارة على موقع Autohome (الشريك)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔍 عرض معلومات السيارة</div>
+                    <p><strong>الموقع:</strong><a href="https://www.autohome.com/" target="_blank">https://www.autohome.com/</a></p>
+                    <p>• استخدم ترجمة Chrome إلى لغتك المفضلة لبدء اختيار السيارة</p>
+                    <p>• تصفح أو ابحث عن طرازات السيارات التي تهمك</p>
+                    <p>• اعرض معاملات وتكوينات السيارة التفصيلية</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="2.jpg" alt="موقع Autohome" class="step-image">
+                            <p class="image-caption">الشكل 2: واجهة موقع Autohome</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="3.jpg" alt="صفحة تفاصيل السيارة" class="step-image">
+                            <p class="image-caption">الشكل 3: صفحة تفاصيل السيارة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-3">
+            <div class="step-title">
+                <div class="step-number">3</div>
+                إضافة محتوى عربة التسوق في صفحة تفاصيل السيارة (الشريك)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🛒 تشغيل عربة التسوق</div>
+                    <p><strong>صفحة المثال:</strong><a href="https://www.autohome.com.cn/spec/71927/" target="_blank">https://www.autohome.com.cn/spec/71927/</a></p>
+                    <p>• انقر على تطبيق الإضافة في صفحة تفاصيل السيارة</p>
+                    <p>• اعثر على عربة التسوق المضافة وافتحها</p>
+                    <p>• املأ معلومات الاتصال في الإضافة</p>
+                    <p>• املأ كمية السيارة المطلوبة واللون ومعلومات المتطلبات الأخرى</p>
+                    <p>• انقر على "إضافة إلى العربة" لإضافة معلومات السيارة المطلوبة</p>
+                    <p>• بعد إضافة جميع معلومات السيارة المطلوبة، انقر على زر الإرسال</p>
+                    <p>• سيتم إرسال استفسارك تلقائياً إلى قسم المشتريات لدينا</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="4.jpg" alt="انقر على تطبيق الإضافة" class="step-image">
+                            <p class="image-caption">الشكل 4: انقر على تطبيق الإضافة</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="5.jpg" alt="افتح عربة التسوق" class="step-image">
+                            <p class="image-caption">الشكل 5: افتح عربة التسوق</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="6.jpg" alt="إرسال الاستفسار" class="step-image">
+                            <p class="image-caption">الشكل 6: إرسال الاستفسار</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-4">
+            <div class="step-title">
+                <div class="step-number">4</div>
+                التسعير وإنشاء الفاتورة الأولية وإرسال البريد الإلكتروني (قسم المشتريات)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">💼 خدمة التسعير المهنية</div>
+                    <p>• سيقوم قسم المشتريات لدينا بإكمال التسعير السريع والفعال</p>
+                    <p>• إنشاء فاتورة أولية رسمية فعالة (Proforma Invoice)</p>
+                    <p>• الإرسال التلقائي عبر البريد الإلكتروني إلى عنوان بريدك الإلكتروني المقدم</p>
+                    <p>• ستكون العملية بأكملها سريعة جداً</p>
+                    <p>• ستحصل على أكثر الأسعار الأصلية والجذابة للمركبات الصينية من المصدر</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="7.jpg" alt="التسعير السريع" class="step-image">
+                            <p class="image-caption">الشكل 7: التسعير السريع والفعال</p>
+                        </div>
+                        <div class="image-container">
+                             <img src="10.jpg" alt="الفاتورة الأولية الرسمية" class="step-image">
+                             <p class="image-caption">الشكل 8: إنشاء الفاتورة الأولية الرسمية</p>
+                         </div>
+                         <div class="image-container">
+                             <img src="12.jpg" alt="إرسال البريد الإلكتروني" class="step-image">
+                             <p class="image-caption">الشكل 9: تفاصيل إرسال البريد الإلكتروني</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-5">
+            <div class="step-title">
+                <div class="step-number">5</div>
+                تقديم خدمة تصدير السيارات المهنية - 9 مراحل
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🌟 ضمان الخدمة المهنية الكاملة</div>
+                    <p>جميع العمليات شفافة لك، ويمكنك تتبع المرحلة الحالية لسيارتك في الوقت الفعلي. في كل مرحلة، يمكنك معرفة العمل الذي نحتاج لإكماله من أجلك، وتعرف أيضاً تفاصيل التقدم. لقد نظمنا 9 مراحل:</p>
+                    
+                    <div class="service-stages-detailed">
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">1</span>
+                                <h4>دفع الفاتورة الأولية / مرحلة الفاتورة الأولية</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="13.jpg" alt="مرحلة دفع الفاتورة الأولية" class="stage-image">
+                                 <p class="image-caption">الشكل 10: مرحلة دفع الفاتورة الأولية</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">2</span>
+                                <h4>حجز السيارة / دفعة مقدمة للسيارة</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="14.jpg" alt="مرحلة حجز السيارة" class="stage-image">
+                                 <p class="image-caption">الشكل 11: مرحلة حجز السيارة</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">3</span>
+                                <h4>إكمال الشراء / إكمال شراء السيارة بالدفع الكامل</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="15.jpg" alt="مرحلة إكمال الشراء" class="stage-image">
+                                 <p class="image-caption">الشكل 12: مرحلة إكمال الشراء</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">4</span>
+                                <h4>النقل المحلي / النقل المحلي</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="16.jpg" alt="مرحلة النقل المحلي" class="stage-image">
+                                 <p class="image-caption">الشكل 13: مرحلة النقل المحلي</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">5</span>
+                                <h4>تحضير الحجز / حجز الشحن</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="17.jpg" alt="مرحلة تحضير الحجز" class="stage-image">
+                                 <p class="image-caption">الشكل 14: مرحلة تحضير الحجز</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">6</span>
+                                <h4>إكمال الحجز / إكمال الحجز</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="18.jpg" alt="مرحلة إكمال الحجز" class="stage-image">
+                                 <p class="image-caption">الشكل 15: مرحلة إكمال الحجز</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">7</span>
+                                <h4>التعبئة / تحميل الحاوية</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="19.jpg" alt="مرحلة التعبئة" class="stage-image">
+                                 <p class="image-caption">الشكل 16: مرحلة التعبئة</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">8</span>
+                                <h4>وثائق التخليص الجمركي / وثائق التخليص الجمركي</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="20.jpg" alt="مرحلة وثائق التخليص الجمركي" class="stage-image">
+                                 <p class="image-caption">الشكل 17: مرحلة وثائق التخليص الجمركي</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">9</span>
+                                <h4>إكمال التسليم / إكمال التسليم</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="21.jpg" alt="إكمال التسليم 1" class="stage-image">
+                                         <p class="image-caption">الشكل 18: إكمال التسليم</p>
+                                     </div>
+                                     <div class="image-container">
+                                         <img src="22.jpg" alt="إكمال التسليم 2" class="stage-image">
+                                         <p class="image-caption">الشكل 19: تأكيد إكمال التسليم</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>🔄 تتبع التقدم في الوقت الفعلي:</strong> كل مرحلة لها موظفون مخصصون، يمكن للعملاء الاستفسار عن التقدم في أي وقت</p>
+                        <p><strong>🌐 خدمة ثنائية اللغة:</strong> مقارنة صينية-عربية، المصطلحات المهنية واضحة ومفهومة</p>
+                        <p><strong>🛡️ ضمان الخدمة:</strong> تغطية تأمينية كاملة، آمنة وموثوقة</p>
+                        <p><strong>📞 خدمة العملاء 24/7:</strong> متاحة دائماً للإجابة على أسئلتك وتقديم المشورة المهنية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎯 لماذا تختارنا</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                ✨ فريق محترف | 🚀 عملية فعالة | 💯 ضمان الجودة | 🌍 خدمة عالمية<br>
+                جعل استيراد السيارات بسيطاً وشفافاً وموثوقاً!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

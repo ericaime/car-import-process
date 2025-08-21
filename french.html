@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide du Processus d'Importation d'Automobiles depuis la Chine</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .step {
+            margin: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .step-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .step-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .step-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .step-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .step-content {
+            display: block;
+        }
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        .service-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .service-stage {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .image-gallery {
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .image-gallery .image-container {
+            margin: 30px 0;
+        }
+        
+        .service-stages-detailed {
+            margin: 30px 0;
+        }
+        
+        .service-stage-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stage-header {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stage-number {
+            background: rgba(255,255,255,0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .stage-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .stage-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Retour à l'Accueil</a>
+            🚗 Guide Complet du Processus d'Importation d'Automobiles depuis la Chine 🚗
+        </div>
+        
+        <div class="step step-1">
+            <div class="step-title">
+                <div class="step-number">1</div>
+                Installer l'Extension Panier d'Achat Automobile (Partenaire)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔧 Guide d'Installation de l'Extension</div>
+                    <p><strong>Site web :</strong><a href="https://chromewebstore.google.com/" target="_blank">https://chromewebstore.google.com/</a></p>
+                    <p>• Ouvrir Chrome Web Store</p>
+                    <p>• Rechercher "shopping cart"</p>
+                    <p>• Trouver cette extension et l'ajouter à Chrome</p>
+                    <div class="image-container">
+                        <img src="1.jpg" alt="Rechercher l'extension panier d'achat" class="step-image">
+                        <p class="image-caption">Figure 1 : Rechercher l'extension panier d'achat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-2">
+            <div class="step-title">
+                <div class="step-number">2</div>
+                Voir les Détails de l'Automobile sur le Site Web Autohome (Partenaire)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔍 Visualisation des Informations de l'Automobile</div>
+                    <p><strong>Site web :</strong><a href="https://www.autohome.com/" target="_blank">https://www.autohome.com/</a></p>
+                    <p>• Utiliser la traduction Chrome vers votre langue préférée pour commencer à sélectionner des automobiles</p>
+                    <p>• Naviguer ou rechercher des modèles d'automobiles qui vous intéressent</p>
+                    <p>• Voir les paramètres et configurations détaillés de l'automobile</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="2.jpg" alt="Site web Autohome" class="step-image">
+                            <p class="image-caption">Figure 2 : Interface du site web Autohome</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="3.jpg" alt="Page de détails de l'automobile" class="step-image">
+                            <p class="image-caption">Figure 3 : Page de détails de l'automobile</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-3">
+            <div class="step-title">
+                <div class="step-number">3</div>
+                Ajouter le Contenu du Panier d'Achat dans la Page de Détails de l'Automobile (Partenaire)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🛒 Opération du Panier d'Achat</div>
+                    <p><strong>Page d'exemple :</strong><a href="https://www.autohome.com.cn/spec/71927/" target="_blank">https://www.autohome.com.cn/spec/71927/</a></p>
+                    <p>• Cliquer sur l'application de l'extension dans la page de détails de l'automobile</p>
+                    <p>• Trouver le panier d'achat ajouté et l'ouvrir</p>
+                    <p>• Compléter les informations de contact dans l'extension</p>
+                    <p>• Compléter la quantité d'automobiles requise, la couleur et autres informations de requirements</p>
+                    <p>• Cliquer sur "Ajouter au panier" pour ajouter les informations de l'automobile requise</p>
+                    <p>• Après avoir ajouté toutes les informations d'automobile requises, cliquer sur le bouton envoyer</p>
+                    <p>• Votre demande sera automatiquement envoyée à notre département d'achat</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="4.jpg" alt="Cliquer sur l'application de l'extension" class="step-image">
+                            <p class="image-caption">Figure 4 : Cliquer sur l'application de l'extension</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="5.jpg" alt="Ouvrir le panier d'achat" class="step-image">
+                            <p class="image-caption">Figure 5 : Ouvrir le panier d'achat</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="6.jpg" alt="Envoyer la demande" class="step-image">
+                            <p class="image-caption">Figure 6 : Envoyer la demande</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-4">
+            <div class="step-title">
+                <div class="step-number">4</div>
+                Devis et Création de Facture Proforma et Envoi par E-mail (Département d'Achat)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">💼 Service de Devis Professionnel</div>
+                    <p>• Notre département d'achat complétera le devis rapide et efficace</p>
+                    <p>• Créer une facture proforma officielle effective (Proforma Invoice)</p>
+                    <p>• Envoi automatique par e-mail à votre adresse e-mail fournie</p>
+                    <p>• Tout le processus sera très rapide</p>
+                    <p>• Vous obtiendrez les prix les plus originaux et attractifs des véhicules chinois de la source</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="7.jpg" alt="Devis rapide" class="step-image">
+                            <p class="image-caption">Figure 7 : Devis rapide et efficace</p>
+                        </div>
+                        <div class="image-container">
+                             <img src="10.jpg" alt="Facture proforma officielle" class="step-image">
+                             <p class="image-caption">Figure 8 : Création de facture proforma officielle</p>
+                         </div>
+                         <div class="image-container">
+                             <img src="12.jpg" alt="Envoi par e-mail" class="step-image">
+                             <p class="image-caption">Figure 9 : Détails de l'envoi par e-mail</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-5">
+            <div class="step-title">
+                <div class="step-number">5</div>
+                Fournir un Service d'Exportation d'Automobiles Professionnel - 9 Étapes
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🌟 Garantie de Service Professionnel Complet</div>
+                    <p>Toutes les opérations sont transparentes pour vous, vous pouvez suivre l'étape actuelle de votre automobile en temps réel. À chaque étape, vous pouvez savoir quel travail nous devons accomplir pour vous, et vous connaissez aussi les détails du progrès. Nous avons organisé 9 étapes :</p>
+                    
+                    <div class="service-stages-detailed">
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">1</span>
+                                <h4>Paiement de Facture Proforma / Étape de Facture Proforma</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="13.jpg" alt="Étape de paiement de facture proforma" class="stage-image">
+                                 <p class="image-caption">Figure 10 : Étape de paiement de facture proforma</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">2</span>
+                                <h4>Réservation d'Automobile / Acompte de l'Automobile</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="14.jpg" alt="Étape de réservation d'automobile" class="stage-image">
+                                 <p class="image-caption">Figure 11 : Étape de réservation d'automobile</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">3</span>
+                                <h4>Compléter l'Achat / Compléter l'Achat de l'Automobile avec Paiement Total</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="15.jpg" alt="Étape de compléter l'achat" class="stage-image">
+                                 <p class="image-caption">Figure 12 : Étape de compléter l'achat</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">4</span>
+                                <h4>Transport Local / Transport Local</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="16.jpg" alt="Étape de transport local" class="stage-image">
+                                 <p class="image-caption">Figure 13 : Étape de transport local</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">5</span>
+                                <h4>Préparation de Réservation / Réservation d'Expédition</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="17.jpg" alt="Étape de préparation de réservation" class="stage-image">
+                                 <p class="image-caption">Figure 14 : Étape de préparation de réservation</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">6</span>
+                                <h4>Compléter la Réservation / Compléter la Réservation</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="18.jpg" alt="Étape de compléter la réservation" class="stage-image">
+                                 <p class="image-caption">Figure 15 : Étape de compléter la réservation</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">7</span>
+                                <h4>Emballage / Chargement de Conteneur</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="19.jpg" alt="Étape d'emballage" class="stage-image">
+                                 <p class="image-caption">Figure 16 : Étape d'emballage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">8</span>
+                                <h4>Documents de Dédouanement / Documents de Dédouanement</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="20.jpg" alt="Étape de documents de dédouanement" class="stage-image">
+                                 <p class="image-caption">Figure 17 : Étape de documents de dédouanement</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">9</span>
+                                <h4>Compléter la Livraison / Compléter la Livraison</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="21.jpg" alt="Compléter la livraison 1" class="stage-image">
+                                         <p class="image-caption">Figure 18 : Compléter la livraison</p>
+                                     </div>
+                                     <div class="image-container">
+                                         <img src="22.jpg" alt="Compléter la livraison 2" class="stage-image">
+                                         <p class="image-caption">Figure 19 : Confirmation de compléter la livraison</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>🔄 Suivi du Progrès en Temps Réel :</strong> Chaque étape a du personnel dédié, les clients peuvent consulter le progrès à tout moment</p>
+                        <p><strong>🌐 Service Bilingue :</strong> Comparaison chinois-français, terminologie professionnelle claire et compréhensible</p>
+                        <p><strong>🛡️ Garantie de Service :</strong> Couverture d'assurance complète, sûr et fiable</p>
+                        <p><strong>📞 Service Client 24/7 :</strong> Toujours disponible pour répondre à vos questions et fournir des conseils professionnels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎯 Pourquoi Nous Choisir ?</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                ✨ Équipe Professionnelle | 🚀 Processus Efficace | 💯 Garantie de Qualité | 🌍 Service Global<br>
+                Rendant l'importation d'automobiles simple, transparente et fiable !
+            </p>
+        </div>
+    </div>
+</body>
+</html>

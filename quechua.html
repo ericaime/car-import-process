@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="qu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antawakuna Rantiy Ruway Siq'i</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .step {
+            margin: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .step-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .step-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .step-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .step-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .step-content {
+            display: block;
+        }
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        .service-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .service-stage {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .image-gallery {
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .image-gallery .image-container {
+            margin: 30px 0;
+        }
+        
+        .service-stages-detailed {
+            margin: 30px 0;
+        }
+        
+        .service-stage-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stage-header {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stage-number {
+            background: rgba(255,255,255,0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .stage-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .stage-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .step {
+                margin: 15px;
+                padding: 20px;
+            }
+            .step-title {
+                font-size: 20px;
+            }
+            .header {
+                font-size: 24px;
+                padding: 20px;
+            }
+            .back-btn {
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Wasiman Kutiy</a>
+            🚗 Chinakamanta Antawakuna Rantiy Hunt'ana Yachay 🚗
+        </div>
+        
+        <div class="step step-1">
+            <div class="step-title">
+                <div class="step-number">1</div>
+                Antawakuna Rantiy Kikin Churay (Yanapaq)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔧 Kikin Churay</div>
+                    <p><strong>Kikin T'inki:</strong> <a href="https://chromewebstore.google.com/detail/shopping-cart/your-extension-id" target="_blank">Chrome Web Store</a></p>
+                    <p>• Chrome Web Store kichay</p>
+                    <p>• "shopping cart" nisqata maskay</p>
+                    <p>• "Chrome-man yapay" nisqapi ñit'iy kikin churanaykipaq</p>
+                    <p>• Churasqamanta, kikin navegador llamk'ana barranpi rikurinqa</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="1.jpg" alt="Shopping cart kikin maskay" class="step-image">
+                            <p class="image-caption">Siq'i 1: Shopping cart kikin maskay</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-2">
+            <div class="step-title">
+                <div class="step-number">2</div>
+                Autohome Web Kitinpi Antawa Willaykunata Qhaway (Yanapaq)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔍 Antawa Willaykunata Qhaway</div>
+                    <p><strong>Web Kiti:</strong><a href="https://www.autohome.com/" target="_blank">https://www.autohome.com/</a></p>
+                    <p>• Chrome nisqawan munasqayki simiman t'ikray hinaspa antawakunata akllayta qallariy</p>
+                    <p>• Munasqayki rikch'aykunata puririchiy utaq maskay</p>
+                    <p>• Antawakunap sut'i ruwayninkunata hinaspa wakichiyninkunata yachay</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="2.jpg" alt="Autohome web kiti" class="step-image">
+                            <p class="image-caption">Siq'i 2: Autohome web kitip uyanin</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="3.jpg" alt="Antawa willay p'anqa" class="step-image">
+                            <p class="image-caption">Siq'i 3: Antawa willay p'anqa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-3">
+            <div class="step-title">
+                <div class="step-number">3</div>
+                Antawa Willay P'anqapi Rantiy Kikin Samiykunata Yapay (Yanapaq)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🛒 Rantiy Kikin Ruraykunata</div>
+                    <p><strong>Rikuchiy P'anqa:</strong><a href="https://www.autohome.com.cn/spec/71927/" target="_blank">https://www.autohome.com.cn/spec/71927/</a></p>
+                    <p>• Antawa willay p'anqapi, kikinkunapi ñit'iy</p>
+                    <p>• Yapasqa shopping cart nisqata tariy hinaspa kichay</p>
+                    <p>• Kikinpi, rimanakuy willaykunata hunt'achiy</p>
+                    <p>• Yupay, llimpi hinaspa huk antawa munaykunata hunt'achiy</p>
+                    <p>• "add to cart" nisqapi ñit'iy munasqayki antawa willaykunata yapanapaq</p>
+                    <p>• Tukuy necesario antawa willaykunata yapasqamanta, "submit" ñit'anapi ñit'iy</p>
+                    <p>• Mañakuyniyki kikinmanta ñuqaykup rantiy wasinman kacharikunqa</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="4.jpg" alt="Kikinkunapi ñit'iy" class="step-image">
+                            <p class="image-caption">Siq'i 4: Kikinkunapi ñit'iy</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="5.jpg" alt="Shopping cart kichay" class="step-image">
+                            <p class="image-caption">Siq'i 5: Shopping cart kichay</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="6.jpg" alt="Mañakuy kachay" class="step-image">
+                            <p class="image-caption">Siq'i 6: Mañakuy kachay</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-4">
+            <div class="step-title">
+                <div class="step-number">4</div>
+                Chanin Riqsichiy, PI Ruway, Correo Electrónico nisqawan PI Kachay (Rantiy Wasi)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">💼 Yachaysapa Chanin Riqsichiy Yanapay</div>
+                    <p>• Ñuqaykup rantiy wasinchik utqaylla hinaspa allin chanin riqsichiyta ruranqa</p>
+                    <p>• Chanin PI (Proforma Invoice) nisqa ruway</p>
+                    <p>• Kikinmanta correo electrónico nisqawan sutichisqa direccionman kachay</p>
+                    <p>• Tukuy rurayqa ancha utqaylla kanqa</p>
+                    <p>• Chinu antawakunap aswan cheqaq hinaspa munay chanin qallariyninkunata chaskikunki</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="7.jpg" alt="Utqay chanin riqsichiy 1" class="step-image">
+                            <p class="image-caption">Siq'i 7: Utqay hinaspa allin chanin riqsichiy</p>
+                        </div>
+                        <div class="image-container">
+                             <img src="10.jpg" alt="Chanin PI" class="step-image">
+                             <p class="image-caption">Siq'i 8: Chanin PI ruway</p>
+                         </div>
+                         <div class="image-container">
+                             <img src="12.jpg" alt="Correo electrónico kachay" class="step-image">
+                             <p class="image-caption">Siq'i 9: Correo electrónico kachay willaykunata</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-5">
+            <div class="step-title">
+                <div class="step-number">5</div>
+                Hunt'asqa Antawa Rantiy Yanapay Ruray (Yanapay Wasi)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🌟 Tukuypaq Rantiy Yanapay</div>
+                    <p>Mañakuy takyachisqamanta, ñuqaykup yanapay aylluykuq hunt'asqa antawa rantiy yanapaykunata qukunqa:</p>
+                    
+                    <div class="service-stages-detailed">
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">1</span>
+                                <h4>Mañakuy Takyachiy / Order Confirmation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="13.jpg" alt="Mañakuy takyachiy" class="stage-image">
+                                         <p class="image-caption">Siq'i 10: Mañakuy takyachiy</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">2</span>
+                                <h4>Ruray / Production</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="14.jpg" alt="Ruray" class="stage-image">
+                                         <p class="image-caption">Siq'i 11: Ruray kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">3</span>
+                                <h4>Allin Kay Kamachiy / Quality Control</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="15.jpg" alt="Allin kay kamachiy" class="stage-image">
+                                         <p class="image-caption">Siq'i 12: Allin kay kamachiy kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">4</span>
+                                <h4>Kachay Wakichiy / Shipping Preparation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="16.jpg" alt="Kachay wakichiy" class="stage-image">
+                                         <p class="image-caption">Siq'i 13: Kachay wakichiy kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">5</span>
+                                <h4>Kachay / Shipping</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="17.jpg" alt="Kachay" class="stage-image">
+                                         <p class="image-caption">Siq'i 14: Kachay kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">6</span>
+                                <h4>Mama Quchapi Purichiy / Sea Transportation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="18.jpg" alt="Mama quchapi purichiy" class="stage-image">
+                                         <p class="image-caption">Siq'i 15: Mama quchapi purichiy kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">7</span>
+                                <h4>Puertoman Chayay / Port Arrival</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="19.jpg" alt="Puertoman chayay" class="stage-image">
+                                         <p class="image-caption">Siq'i 16: Puertoman chayay kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">8</span>
+                                <h4>Aduana Pichay / Customs Clearance</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="20.jpg" alt="Aduana pichay" class="stage-image">
+                                         <p class="image-caption">Siq'i 17: Aduana pichay kaq</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">9</span>
+                                <h4>Quy Tukuchiy / Delivery Completion</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="21.jpg" alt="Quy tukuchiy 1" class="stage-image">
+                                         <p class="image-caption">Siq'i 18: Quy tukuchiy</p>
+                                     </div>
+                                     <div class="image-container">
+                                         <img src="22.jpg" alt="Quy tukuchiy 2" class="stage-image">
+                                         <p class="image-caption">Siq'i 19: Quy tukuchiy takyachiy</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>🔄 Chiqap Pachapi Ñawpaqman Purichiy Qatiy:</strong> Sapa kaq sapan runakunayuq, rantiqkuna ima pachapipas ñawpaqman purichiykunata tapuyta atinku</p>
+                        <p><strong>🌐 Iskay Simi Yanapay:</strong> Quechua-Chinu tupachiy, yachaysapa simikunata sut'imanta hamut'ay</p>
+                        <p><strong>🛡️ Yanapay Takyachiy:</strong> Hunt'asqa seguro qhaway, waqaychay hinaspa confianza</p>
+                        <p><strong>📞 24/7 Yanapay:</strong> Sapa kuti wakichisqa tapuyniykikunata kutichinapaq hinaspa yachaysapa yuyaykunata qunapaq</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎯 Ñuqayku Akllaykup Allinninkunata</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                ✨ Yachaysapa Ayllu | 🚀 Allin Ruraykunata | 💯 Allin Kay Takyachiy | 🌍 Tukuy Pachapi Yanapay<br>
+                Antawa rantiyta facil, sut'i hinaspa confianzayuq rurayku!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

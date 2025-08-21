@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Car Import Process Guide</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .step {
+            margin: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .step-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .step-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .step-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .step-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .step-content {
+            display: block;
+        }
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        .service-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .service-stage {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .image-gallery {
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .image-gallery .image-container {
+            margin: 30px 0;
+        }
+        
+        .service-stages-detailed {
+            margin: 30px 0;
+        }
+        
+        .service-stage-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stage-header {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stage-number {
+            background: rgba(255,255,255,0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .stage-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .stage-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            🚗 China Car Import Complete Process Guide 🚗
+        </div>
+        
+        <div class="step step-1">
+            <div class="step-title">
+                <div class="step-number">1</div>
+                Install Car Shopping Cart Plugin (Partner)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔧 Plugin Installation Guide</div>
+                    <p><strong>Website:</strong><a href="https://chromewebstore.google.com/" target="_blank">https://chromewebstore.google.com/</a></p>
+                    <p>• Open Chrome browser extension store</p>
+                    <p>• Search for "shopping cart" keyword</p>
+                    <p>• Find this Chrome extension and add it to Chrome</p>
+                    <div class="image-container">
+                        <img src="1.jpg" alt="Search shopping cart plugin" class="step-image">
+                        <p class="image-caption">Figure 1: Search shopping cart plugin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-2">
+            <div class="step-title">
+                <div class="step-number">2</div>
+                View Vehicle Details on Autohome Website (Partner)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔍 Vehicle Information Viewing</div>
+                    <p><strong>Website:</strong><a href="https://www.autohome.com/" target="_blank">https://www.autohome.com/</a></p>
+                    <p>• Use Chrome translate to your preferred language to start car selection</p>
+                    <p>• Browse or search for vehicle models you're interested in</p>
+                    <p>• View detailed vehicle parameters and configurations</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="2.jpg" alt="Autohome website" class="step-image">
+                            <p class="image-caption">Figure 2: Autohome website interface</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="3.jpg" alt="Vehicle details page" class="step-image">
+                            <p class="image-caption">Figure 3: Vehicle details page</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-3">
+            <div class="step-title">
+                <div class="step-number">3</div>
+                Add Shopping Cart Content on Vehicle Details Page (Partner)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🛒 Shopping Cart Operation</div>
+                    <p><strong>Example Page:</strong><a href="https://www.autohome.com.cn/spec/71927/" target="_blank">https://www.autohome.com.cn/spec/71927/</a></p>
+                    <p>• Click on the extension app on the vehicle details page</p>
+                    <p>• Find and open the added shopping cart</p>
+                    <p>• Fill in contact information in the extension</p>
+                    <p>• Fill in required vehicle quantity, color and other requirement information</p>
+                    <p>• Click add to cart to add required vehicle information</p>
+                    <p>• After adding all required vehicle information, click submit button</p>
+                    <p>• Your inquiry will be automatically sent back to our purchasing department</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="4.jpg" alt="Click extension app" class="step-image">
+                            <p class="image-caption">Figure 4: Click extension app</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="5.jpg" alt="Open shopping cart" class="step-image">
+                            <p class="image-caption">Figure 5: Open shopping cart</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="6.jpg" alt="Submit inquiry" class="step-image">
+                            <p class="image-caption">Figure 6: Submit inquiry</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-4">
+            <div class="step-title">
+                <div class="step-number">4</div>
+                Quotation, PI Creation, and PI Email Sending (Purchasing Department)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">💼 Professional Quotation Service</div>
+                    <p>• Our purchasing department will complete fast and effective quotation</p>
+                    <p>• Create effective formal PI (Proforma Invoice)</p>
+                    <p>• Automatically send via email to your provided email address</p>
+                    <p>• The entire process will be very fast</p>
+                    <p>• You will get the most authentic and attractive source prices for Chinese vehicles</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="7.jpg" alt="Fast quotation" class="step-image">
+                            <p class="image-caption">Figure 7: Fast and effective quotation</p>
+                        </div>
+                        <div class="image-container">
+                             <img src="10.jpg" alt="Formal PI" class="step-image">
+                             <p class="image-caption">Figure 8: Create formal PI</p>
+                         </div>
+                         <div class="image-container">
+                             <img src="12.jpg" alt="Email sending" class="step-image">
+                             <p class="image-caption">Figure 9: Email sending details</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-5">
+            <div class="step-title">
+                <div class="step-number">5</div>
+                Provide Professional Vehicle Export Service - 9 Stages
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🌟 Full Professional Service Guarantee</div>
+                    <p>All processes are transparent to you, and you can track the current stage of your car in real time. In each stage, you can know what work we need to complete for you, and you also know the progress details. We have organized 9 stages:</p>
+                    
+                    <div class="service-stages-detailed">
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">1</span>
+                                <h4>PI Push / PI Stage</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="13.jpg" alt="PI push stage" class="stage-image">
+                                 <p class="image-caption">Figure 10: PI push stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">2</span>
+                                <h4>Vehicle Lock / Vehicle Down Payment</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="14.jpg" alt="Vehicle lock stage" class="stage-image">
+                                 <p class="image-caption">Figure 11: Vehicle lock stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">3</span>
+                                <h4>Purchase Completion / Full Payment Vehicle Purchase Completion</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="15.jpg" alt="Purchase completion stage" class="stage-image">
+                                 <p class="image-caption">Figure 12: Purchase completion stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">4</span>
+                                <h4>Domestic Transport / Domestic Transport</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="16.jpg" alt="Domestic transport stage" class="stage-image">
+                                 <p class="image-caption">Figure 13: Domestic transport stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">5</span>
+                                <h4>Booking Preparation / Booking Shipment</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="17.jpg" alt="Booking preparation stage" class="stage-image">
+                                 <p class="image-caption">Figure 14: Booking preparation stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">6</span>
+                                <h4>Booking Completion / Booking Completion</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="18.jpg" alt="Booking completion stage" class="stage-image">
+                                 <p class="image-caption">Figure 15: Booking completion stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">7</span>
+                                <h4>Container Loading / Loading Container</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="19.jpg" alt="Container loading stage" class="stage-image">
+                                 <p class="image-caption">Figure 16: Container loading stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">8</span>
+                                <h4>Customs Clearance Documents / Customs Clearance Documents</h4>
+                            </div>
+                            <div class="stage-content">
+                                 <img src="20.jpg" alt="Customs clearance documents stage" class="stage-image">
+                                 <p class="image-caption">Figure 17: Customs clearance documents stage</p>
+                             </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">9</span>
+                                <h4>Delivery Completion / Delivery Completion</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="21.jpg" alt="Delivery completion 1" class="stage-image">
+                                         <p class="image-caption">Figure 18: Delivery completion</p>
+                                     </div>
+                                     <div class="image-container">
+                                         <img src="22.jpg" alt="Delivery completion 2" class="stage-image">
+                                         <p class="image-caption">Figure 19: Delivery completion confirmation</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>🔄 Real-time Progress Tracking:</strong> Each stage has dedicated personnel, customers can inquire about progress at any time</p>
+                        <p><strong>🌐 Bilingual Service:</strong> Chinese-English comparison, professional terminology clear and understandable</p>
+                        <p><strong>🛡️ Service Guarantee:</strong> Full insurance coverage, safe and reliable</p>
+                        <p><strong>📞 24/7 Customer Service:</strong> Always available to answer your questions and provide professional advice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎯 Why Choose Us</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                ✨ Professional Team | 🚀 Efficient Process | 💯 Quality Guarantee | 🌍 Global Service<br>
+                Making car import simple, transparent, and reliable!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
