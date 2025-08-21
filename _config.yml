@@ -1,0 +1,60 @@
+# GitHub Pages Configuration
+title: "汽车进口流程图 | Car Import Process Flowchart"
+description: "详细的汽车进口流程指导，支持中文、英语、阿拉伯语、西班牙语和法语五种语言版本 | Detailed car import process guide in 5 languages"
+url: "https://ericaime.github.io"
+baseurl: "/car-import-process"
+
+# SEO Settings
+lang: zh-CN
+author: "ericaime"
+
+# GitHub Pages Settings
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files
+exclude:
+  - 生成长图.py
+  - 整体流程说明.txt
+  - description.pdf
+  - show/
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  languages:
+    output: true
+    permalink: /:collection/:name/
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      author: "ericaime"
+  - scope:
+      path: ""
+      type: "languages"
+    values:
+      layout: "language"
+
+# Social links
+github_username: ericaime
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X
+
+# Timezone
+timezone: Asia/Shanghai

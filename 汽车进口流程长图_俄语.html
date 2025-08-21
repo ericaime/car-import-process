@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Схема процесса импорта автомобилей</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .step {
+            margin: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .step-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .step-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .step-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .step-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .step-content {
+            display: block;
+        }
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        .service-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .service-stage {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .image-gallery {
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .image-gallery .image-container {
+            margin: 30px 0;
+        }
+        
+        .service-stages-detailed {
+            margin: 30px 0;
+        }
+        
+        .service-stage-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stage-header {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stage-number {
+            background: rgba(255,255,255,0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .stage-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .stage-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .step {
+                margin: 15px;
+                padding: 20px;
+            }
+            .step-title {
+                font-size: 20px;
+            }
+            .header {
+                font-size: 24px;
+                padding: 20px;
+            }
+            .back-btn {
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Вернуться на главную</a>
+            🚗 Полное руководство по процессу импорта автомобилей из Китая 🚗
+        </div>
+        
+        <div class="step step-1">
+            <div class="step-title">
+                <div class="step-number">1</div>
+                Установка расширения корзины покупок автомобилей (Партнер)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔧 Установка расширения</div>
+                    <p><strong>Ссылка на расширение:</strong> <a href="https://chromewebstore.google.com/detail/shopping-cart/your-extension-id" target="_blank">Chrome Web Store</a></p>
+                    <p>• Откройте Chrome Web Store</p>
+                    <p>• Найдите "shopping cart" в поиске</p>
+                    <p>• Нажмите "Добавить в Chrome" для установки расширения</p>
+                    <p>• После установки расширение появится в панели инструментов браузера</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="1.png" alt="Поиск расширения shopping cart" class="step-image">
+                            <p class="image-caption">Рис. 1: Поиск расширения shopping cart</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-2">
+            <div class="step-title">
+                <div class="step-number">2</div>
+                Просмотр деталей автомобиля на сайте Autohome (Партнер)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔍 Просмотр информации об автомобиле</div>
+                    <p><strong>Веб-сайт:</strong><a href="https://www.autohome.com/" target="_blank">https://www.autohome.com/</a></p>
+                    <p>• Используйте Chrome для перевода на привычный язык и начните выбор автомобиля</p>
+                    <p>• Просматривайте или ищите интересующие вас модели</p>
+                    <p>• Изучайте подробные параметры и конфигурации автомобилей</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="2.png" alt="Сайт Autohome" class="step-image">
+                            <p class="image-caption">Рис. 2: Интерфейс сайта Autohome</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="3.png" alt="Страница деталей автомобиля" class="step-image">
+                            <p class="image-caption">Рис. 3: Страница деталей автомобиля</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-3">
+            <div class="step-title">
+                <div class="step-number">3</div>
+                Добавление содержимого корзины на странице деталей автомобиля (Партнер)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🛒 Операции с корзиной</div>
+                    <p><strong>Пример страницы:</strong><a href="https://www.autohome.com.cn/spec/71927/" target="_blank">https://www.autohome.com.cn/spec/71927/</a></p>
+                    <p>• На странице деталей автомобиля нажмите на расширения</p>
+                    <p>• Найдите и откройте добавленную shopping cart</p>
+                    <p>• В расширении заполните контактную информацию</p>
+                    <p>• Заполните количество, цвет и другие требования к автомобилю</p>
+                    <p>• Нажмите "add to cart" для добавления информации о нужном автомобиле</p>
+                    <p>• После добавления всей необходимой информации об автомобилях нажмите кнопку "submit"</p>
+                    <p>• Ваш запрос автоматически передастся в наш отдел закупок</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="4.png" alt="Нажмите на расширения" class="step-image">
+                            <p class="image-caption">Рис. 4: Нажмите на расширения</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="5.png" alt="Откройте shopping cart" class="step-image">
+                            <p class="image-caption">Рис. 5: Откройте shopping cart</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="6.png" alt="Отправить запрос" class="step-image">
+                            <p class="image-caption">Рис. 6: Отправить запрос</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-4">
+            <div class="step-title">
+                <div class="step-number">4</div>
+                Котировка, создание PI, отправка PI по электронной почте (Отдел закупок)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">💼 Профессиональная служба котировок</div>
+                    <p>• Наш отдел закупок выполнит быструю и эффективную котировку</p>
+                    <p>• Создание действительного официального PI (Proforma Invoice)</p>
+                    <p>• Автоматическая отправка по электронной почте на указанный адрес</p>
+                    <p>• Весь процесс будет очень быстрым</p>
+                    <p>• Вы получите самые реальные и привлекательные исходные цены на китайские автомобили</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="7.png" alt="Быстрая котировка 1" class="step-image">
+                            <p class="image-caption">Рис. 7: Быстрая и эффективная котировка</p>
+                        </div>
+                        <div class="image-container">
+                             <img src="10.png" alt="Официальный PI" class="step-image">
+                             <p class="image-caption">Рис. 8: Создание официального PI</p>
+                         </div>
+                         <div class="image-container">
+                             <img src="12.png" alt="Отправка по электронной почте" class="step-image">
+                             <p class="image-caption">Рис. 9: Детали отправки по электронной почте</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-5">
+            <div class="step-title">
+                <div class="step-number">5</div>
+                Полный процесс обслуживания импорта автомобилей (Отдел обслуживания)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🌟 Комплексное обслуживание импорта</div>
+                    <p>После подтверждения заказа наша команда обслуживания предоставит полный спектр услуг по импорту автомобилей:</p>
+                    
+                    <div class="service-stages-detailed">
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">1</span>
+                                <h4>Подтверждение заказа / Order Confirmation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="13.png" alt="Подтверждение заказа" class="stage-image">
+                                         <p class="image-caption">Рис. 10: Подтверждение заказа</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">2</span>
+                                <h4>Производство / Production</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="14.png" alt="Производство" class="stage-image">
+                                         <p class="image-caption">Рис. 11: Этап производства</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">3</span>
+                                <h4>Контроль качества / Quality Control</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="15.png" alt="Контроль качества" class="stage-image">
+                                         <p class="image-caption">Рис. 12: Этап контроля качества</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">4</span>
+                                <h4>Подготовка к отгрузке / Shipping Preparation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="16.png" alt="Подготовка к отгрузке" class="stage-image">
+                                         <p class="image-caption">Рис. 13: Этап подготовки к отгрузке</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">5</span>
+                                <h4>Отгрузка / Shipping</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="17.png" alt="Отгрузка" class="stage-image">
+                                         <p class="image-caption">Рис. 14: Этап отгрузки</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">6</span>
+                                <h4>Морская перевозка / Sea Transportation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="18.png" alt="Морская перевозка" class="stage-image">
+                                         <p class="image-caption">Рис. 15: Этап морской перевозки</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">7</span>
+                                <h4>Прибытие в порт / Port Arrival</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="19.png" alt="Прибытие в порт" class="stage-image">
+                                         <p class="image-caption">Рис. 16: Этап прибытия в порт</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">8</span>
+                                <h4>Таможенное оформление / Customs Clearance</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="20.png" alt="Таможенное оформление" class="stage-image">
+                                         <p class="image-caption">Рис. 17: Этап таможенного оформления</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">9</span>
+                                <h4>Завершение доставки / Delivery Completion</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="21.png" alt="Завершение доставки 1" class="stage-image">
+                                         <p class="image-caption">Рис. 18: Завершение доставки</p>
+                                     </div>
+                                     <div class="image-container">
+                                         <img src="22.png" alt="Завершение доставки 2" class="stage-image">
+                                         <p class="image-caption">Рис. 19: Подтверждение завершения доставки</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>🔄 Отслеживание прогресса в реальном времени:</strong> За каждый этап отвечает специальный персонал, клиенты могут запрашивать прогресс в любое время</p>
+                        <p><strong>🌐 Двуязычное обслуживание:</strong> Русско-китайское сопоставление, профессиональная терминология четко понятна</p>
+                        <p><strong>🛡️ Гарантия обслуживания:</strong> Полное страховое покрытие, безопасно и надежно</p>
+                        <p><strong>📞 Служба поддержки 24/7:</strong> Всегда готовы ответить на ваши вопросы и предоставить профессиональные советы</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎯 Преимущества выбора нас</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                ✨ Профессиональная команда | 🚀 Эффективные процессы | 💯 Гарантия качества | 🌍 Глобальное обслуживание<br>
+                Делаем импорт автомобилей простым, прозрачным и надежным!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mchoro wa Mchakato wa Kuagiza Magari</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .step {
+            margin: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .step-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+        .step-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+        .step-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        .step-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; }
+        .step-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .step-number {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .step-content {
+            display: block;
+        }
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        .service-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .service-stage {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 30px;
+            color: #666;
+            margin: 20px 0;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .image-gallery {
+            display: block;
+            margin: 20px 0;
+        }
+        
+        .image-gallery .image-container {
+            margin: 30px 0;
+        }
+        
+        .service-stages-detailed {
+            margin: 30px 0;
+        }
+        
+        .service-stage-item {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stage-header {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stage-number {
+            background: rgba(255,255,255,0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .stage-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .stage-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .step {
+                margin: 15px;
+                padding: 20px;
+            }
+            .step-title {
+                font-size: 20px;
+            }
+            .header {
+                font-size: 24px;
+                padding: 20px;
+            }
+            .back-btn {
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">← Rudi Nyumbani</a>
+            🚗 Mwongozo Kamili wa Mchakato wa Kuagiza Magari kutoka China 🚗
+        </div>
+        
+        <div class="step step-1">
+            <div class="step-title">
+                <div class="step-number">1</div>
+                Kusakinisha Kiendelezi cha Shopping Cart ya Magari (Mshirika)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔧 Kusakinisha Kiendelezi</div>
+                    <p><strong>Kiungo cha Kiendelezi:</strong> <a href="https://chromewebstore.google.com/detail/shopping-cart/your-extension-id" target="_blank">Chrome Web Store</a></p>
+                    <p>• Fungua Chrome Web Store</p>
+                    <p>• Tafuta "shopping cart" katika utafutaji</p>
+                    <p>• Bonyeza "Ongeza kwenye Chrome" ili kusakinisha kiendelezi</p>
+                    <p>• Baada ya kusakinisha, kiendelezi kitaonekana kwenye mstari wa zana za kivinjari</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="1.png" alt="Tafuta kiendelezi cha shopping cart" class="step-image">
+                            <p class="image-caption">Mchoro 1: Tafuta kiendelezi cha shopping cart</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-2">
+            <div class="step-title">
+                <div class="step-number">2</div>
+                Kuona Maelezo ya Gari kwenye Tovuti ya Autohome (Mshirika)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🔍 Kuona Habari za Gari</div>
+                    <p><strong>Tovuti:</strong><a href="https://www.autohome.com/" target="_blank">https://www.autohome.com/</a></p>
+                    <p>• Tumia Chrome kutafsiri kwa lugha unayoipenda na uanze kuchagua magari</p>
+                    <p>• Vinjari au tafuta miundo unayoipenda</p>
+                    <p>• Soma kwa undani vigezo na mipangilio ya magari</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="2.png" alt="Tovuti ya Autohome" class="step-image">
+                            <p class="image-caption">Mchoro 2: Kiolesura cha tovuti ya Autohome</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="3.png" alt="Ukurasa wa maelezo ya gari" class="step-image">
+                            <p class="image-caption">Mchoro 3: Ukurasa wa maelezo ya gari</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-3">
+            <div class="step-title">
+                <div class="step-number">3</div>
+                Kuongeza Maudhui ya Kikapu kwenye Ukurasa wa Maelezo ya Gari (Mshirika)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🛒 Shughuli za Kikapu</div>
+                    <p><strong>Ukurasa wa Mfano:</strong><a href="https://www.autohome.com.cn/spec/71927/" target="_blank">https://www.autohome.com.cn/spec/71927/</a></p>
+                    <p>• Kwenye ukurasa wa maelezo ya gari, bonyeza viendelezi</p>
+                    <p>• Tafuta na ufungue shopping cart uliyoongeza</p>
+                    <p>• Kwenye kiendelezi, jaza habari za mawasiliano</p>
+                    <p>• Jaza idadi, rangi na mahitaji mengine ya gari</p>
+                    <p>• Bonyeza "add to cart" ili kuongeza habari za gari unalotaka</p>
+                    <p>• Baada ya kuongeza habari zote zinazohitajika za magari, bonyeza kitufe cha "submit"</p>
+                    <p>• Ombi lako litapelekwa kiotomatiki kwenye idara yetu ya ununuzi</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="4.png" alt="Bonyeza viendelezi" class="step-image">
+                            <p class="image-caption">Mchoro 4: Bonyeza viendelezi</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="5.png" alt="Fungua shopping cart" class="step-image">
+                            <p class="image-caption">Mchoro 5: Fungua shopping cart</p>
+                        </div>
+                        <div class="image-container">
+                            <img src="6.png" alt="Tuma ombi" class="step-image">
+                            <p class="image-caption">Mchoro 6: Tuma ombi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-4">
+            <div class="step-title">
+                <div class="step-number">4</div>
+                Bei, Kuunda PI, Kutuma PI kwa Barua pepe (Idara ya Ununuzi)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">💼 Huduma ya Kitaalamu ya Bei</div>
+                    <p>• Idara yetu ya ununuzi itafanya utayarishaji wa bei wa haraka na ufanisi</p>
+                    <p>• Kuunda PI (Proforma Invoice) rasmi halali</p>
+                    <p>• Kutuma kiotomatiki kwa barua pepe kwenye anwani iliyobainishwa</p>
+                    <p>• Mchakato wote utakuwa wa haraka sana</p>
+                    <p>• Utapokea bei za asili za kweli na za kuvutia zaidi za magari ya Kichina</p>
+                    <div class="image-gallery">
+                        <div class="image-container">
+                            <img src="7.png" alt="Bei ya haraka 1" class="step-image">
+                            <p class="image-caption">Mchoro 7: Utayarishaji wa bei wa haraka na ufanisi</p>
+                        </div>
+                        <div class="image-container">
+                             <img src="10.png" alt="PI rasmi" class="step-image">
+                             <p class="image-caption">Mchoro 8: Kuunda PI rasmi</p>
+                         </div>
+                         <div class="image-container">
+                             <img src="12.png" alt="Kutuma kwa barua pepe" class="step-image">
+                             <p class="image-caption">Mchoro 9: Maelezo ya kutuma kwa barua pepe</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">⬇️</div>
+        
+        <div class="step step-5">
+            <div class="step-title">
+                <div class="step-number">5</div>
+                Mchakato Kamili wa Huduma ya Kuagiza Magari (Idara ya Huduma)
+            </div>
+            <div class="step-content">
+                <div class="step-description">
+                    <div class="highlight">🌟 Huduma ya Kina ya Kuagiza</div>
+                    <p>Baada ya kuthibitisha agizo, timu yetu ya huduma itatoa seti kamili ya huduma za kuagiza magari:</p>
+                    
+                    <div class="service-stages-detailed">
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">1</span>
+                                <h4>Kuthibitisha Agizo / Order Confirmation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="13.png" alt="Kuthibitisha agizo" class="stage-image">
+                                         <p class="image-caption">Mchoro 10: Kuthibitisha agizo</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">2</span>
+                                <h4>Uzalishaji / Production</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="14.png" alt="Uzalishaji" class="stage-image">
+                                         <p class="image-caption">Mchoro 11: Hatua ya uzalishaji</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">3</span>
+                                <h4>Udhibiti wa Ubora / Quality Control</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="15.png" alt="Udhibiti wa ubora" class="stage-image">
+                                         <p class="image-caption">Mchoro 12: Hatua ya udhibiti wa ubora</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">4</span>
+                                <h4>Maandalizi ya Usafirishaji / Shipping Preparation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="16.png" alt="Maandalizi ya usafirishaji" class="stage-image">
+                                         <p class="image-caption">Mchoro 13: Hatua ya maandalizi ya usafirishaji</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">5</span>
+                                <h4>Usafirishaji / Shipping</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="17.png" alt="Usafirishaji" class="stage-image">
+                                         <p class="image-caption">Mchoro 14: Hatua ya usafirishaji</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">6</span>
+                                <h4>Usafiri wa Baharini / Sea Transportation</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="18.png" alt="Usafiri wa baharini" class="stage-image">
+                                         <p class="image-caption">Mchoro 15: Hatua ya usafiri wa baharini</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">7</span>
+                                <h4>Kuwasili Bandari / Port Arrival</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="19.png" alt="Kuwasili bandari" class="stage-image">
+                                         <p class="image-caption">Mchoro 16: Hatua ya kuwasili bandari</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">8</span>
+                                <h4>Ufuatiliaji wa Forodha / Customs Clearance</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="20.png" alt="Ufuatiliaji wa forodha" class="stage-image">
+                                         <p class="image-caption">Mchoro 17: Hatua ya ufuatiliaji wa forodha</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-stage-item">
+                            <div class="stage-header">
+                                <span class="stage-number">9</span>
+                                <h4>Kukamilisha Utoaji / Delivery Completion</h4>
+                            </div>
+                            <div class="stage-content">
+                                <div class="image-gallery">
+                                    <div class="image-container">
+                                         <img src="21.png" alt="Kukamilisha utoaji 1" class="stage-image">
+                                         <p class="image-caption">Mchoro 18: Kukamilisha utoaji</p>
+                                     </div>
+                                     <div class="image-container">
+                                         <img src="22.png" alt="Kukamilisha utoaji 2" class="stage-image">
+                                         <p class="image-caption">Mchoro 19: Kuthibitisha kukamilisha utoaji</p>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>🔄 Ufuatiliaji wa Maendeleo kwa Wakati Halisi:</strong> Kila hatua ina wafanyakazi maalum wanaohusika, wateja wanaweza kuuliza maendeleo wakati wowote</p>
+                        <p><strong>🌐 Huduma ya Lugha Mbili:</strong> Ulinganisho wa Kiswahili-Kichina, istilahi za kitaalamu zinaeleweka wazi</p>
+                        <p><strong>🛡️ Dhamana ya Huduma:</strong> Ulinzi kamili wa bima, salama na wa kuaminika</p>
+                        <p><strong>📞 Msaada wa Saa 24/7:</strong> Daima tayari kujibu maswali yako na kutoa ushauri wa kitaalamu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; background: #f8f9fa; margin-top: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎯 Faida za Kutuchagua</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.6;">
+                ✨ Timu ya Kitaalamu | 🚀 Michakato ya Ufanisi | 💯 Dhamana ya Ubora | 🌍 Huduma ya Kimataifa<br>
+                Tunafanya kuagiza magari kuwa rahisi, uwazi na wa kuaminika!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
